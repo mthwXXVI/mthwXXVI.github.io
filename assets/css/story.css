@@ -1,0 +1,292 @@
+/* --- OVERALL STYLE & BACKGROUND--- */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #0a0a0a;
+    font-family: 'Roboto', 'Open Sans', sans-serif;
+    color: #e0e0e0;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.bgimg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://raw.githubusercontent.com/mthwXXVI/ZoiEscapeWeb/main/assets/images/cut scene 2.png');
+    background-image: url('../images/cut scene 2.png'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.15;
+    z-index: -2;
+}
+
+
+.nav-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: #2a9916; 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+   
+    animation: slideDownNav 0.8s ease-out forwards;
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: row;
+    background: transparent;
+    padding: 0;
+    list-style: none;
+    margin: 0;
+}
+
+.nav-button {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9rem;
+    font-weight: bold;
+    padding: 18px 25px;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    text-transform: uppercase;
+    display: inline-block;
+    position: relative;
+    transition: color 0.3s ease, background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-button:last-child {
+    border-right: none;
+}
+
+.nav-button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffbe30;
+}
+
+.nav-button::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: #ffbe30;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-button:hover::after {
+    width: 100%;
+}
+
+.nav-button.active {
+    background: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    box-shadow: inset 0 -3px 0 rgb(245, 44, 44);
+}
+
+
+.content, .mechanics-archive {
+    background-color: rgba(15, 15, 20, 0.95);
+    width: 85%;
+    max-width: 850px;
+    padding: 40px;
+    border-left: 4px solid #39FF14; 
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.9); 
+    margin: 120px auto 60px auto;     
+    color: white; 
+  
+    animation: fadeInPage 1.2s ease-out forwards;
+}
+
+h1, h2 {
+    font-family: 'Orbitron', sans-serif; 
+    color: #F6BE00; 
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+p {
+    line-height: 1.8;
+    text-align: justify;
+    margin-bottom: 20px;
+}
+
+.status-header {
+    color: #39FF14;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.85rem;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.section-divider {
+    height: 2px;
+    background: #39FF14;
+    margin: 30px 0;
+    opacity: 0.3;
+}
+
+.profile-wrapper {
+    display: flex;
+    gap: 25px;
+    margin-top: 30px;
+    align-items: flex-start;
+   
+    animation: fadeInPage 1.5s ease-out forwards;
+}
+
+.idle-sidebar {
+    border: 2px solid #39FF14;
+    background: #000;
+    padding: 15px;
+    width: 180px;
+    text-align: center;
+    box-shadow: 0px 0px 15px rgba(57, 255, 20, 0.2);
+  
+    animation: borderPulse 3s infinite;
+}
+
+.idle-sidebar img {
+    width: 100%;
+    height: auto;
+    image-rendering: pixelated;
+}
+
+.idle-label {
+    display: block;
+    margin-top: 10px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.75rem;
+    color: #39FF14;
+    letter-spacing: 1px;
+}
+
+.main-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.character-details {
+    border: 1px solid rgba(57, 255, 20, 0.3);
+    background: rgba(20, 20, 20, 0.6);
+    padding: 25px;
+}
+
+.action-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.action-box {
+    border: 2px solid #39FF14;
+    background: #000;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.action-box:hover {
+    transform: translateY(-5px);
+    border-color: #F6BE00;
+    box-shadow: 0px 5px 15px rgba(246, 190, 0, 0.3);
+}
+
+.action-box img {
+    width: 100%;
+    height: auto;
+    image-rendering: pixelated;
+}
+
+.action-label {
+    margin-top: 8px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.7rem;
+    color: #39FF14;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Stage 1: Neon Pink */
+.content.stage1 { border-left: 4px solid #FF1493; margin-top: 40px; animation: fadeInPage 1.2s ease-out forwards; }
+.stage1 h1, .stage1 .status-header, .stage1 .idle-label, .stage1 .action-label { color: #FF1493; }
+.stage1 .idle-sidebar, .stage1 .action-box { border-color: #FF1493; }
+.stage1 .section-divider { background: #FF1493; }
+.stage1 .character-details { border-color: rgba(255, 20, 147, 0.3); }
+
+/* Stage 2: Orange-Red */
+.content.stage2 { border-left: 4px solid #FF4500; margin-top: 40px; animation: fadeInPage 1.2s ease-out forwards; }
+.stage2 h1, .stage2 .status-header, .stage2 .idle-label, .stage2 .action-label, .stage2 .character-details h2 { color: #FF4500; }
+.stage2 .idle-sidebar, .stage2 .action-box { border: 2px solid #FF4500; }
+.stage2 .idle-sidebar { box-shadow: 0px 0px 15px rgba(255, 69, 0, 0.2); }
+.stage2 .section-divider { background: #FF4500; }
+.stage2 .character-details { border: 1px solid rgba(255, 69, 0, 0.3); }
+
+/* Stage 3: Green-Yellow */
+.content.stage3 { border-left: 4px solid #ADFF2F; margin-top: 40px; animation: fadeInPage 1.2s ease-out forwards; }
+.stage3 h1, .stage3 .status-header, .stage3 .idle-label, .stage3 .action-label { color: #ADFF2F; }
+.stage3 .idle-sidebar, .stage3 .action-box { border-color: #ADFF2F; }
+.stage3 .section-divider { background: #ADFF2F; }
+.stage3 .character-details { border-color: rgba(173, 255, 47, 0.3); }
+
+/* Stage 4: Indigo/Purple */
+.content.stage4 { border-left: 4px solid #4B0082; margin-top: 40px; animation: fadeInPage 1.2s ease-out forwards; }
+.stage4 h1, .stage4 .status-header, .stage4 .idle-label, .stage4 .action-label, .stage4 .character-details h2 { color: #9370DB; }
+.stage4 .idle-sidebar, .stage4 .action-box { border-color: #4B0082; }
+.stage4 .section-divider { background: #4B0082; }
+.stage4 .character-details { border-color: rgba(75, 0, 130, 0.3); }
+
+
+@keyframes fadeInPage {
+    from { 
+        opacity: 0; 
+        transform: translateY(30px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* Nav Slide Down */
+@keyframes slideDownNav {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* Subtle Border Pulse (Horror/Sci-fi effect) */
+@keyframes borderPulse {
+    0% { box-shadow: 0px 0px 15px rgba(57, 255, 20, 0.2); }
+    50% { box-shadow: 0px 0px 25px rgba(57, 255, 20, 0.5); }
+    100% { box-shadow: 0px 0px 15px rgba(57, 255, 20, 0.2); }
+}
+
+.idle-sidebar img + img, 
+.action-box img + img {
+    display: none;
+}
